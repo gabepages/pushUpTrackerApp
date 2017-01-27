@@ -5,6 +5,7 @@
  */
 
 import React, { Component } from 'react';
+import firebase from "firebase"
 import {
   AppRegistry,
   StyleSheet,
@@ -22,6 +23,16 @@ const MyStatusBar = ({backgroundColor, ...props}) => (
     <StatusBar backgroundColor={backgroundColor} {...props} />
   </View>
 );
+// Initialize Firebase
+var config = {
+ apiKey: "AIzaSyBODxoQGXMZDXKgtae5KjKEL3sVLo5ooLQ",
+ authDomain: "push-up-tracker.firebaseapp.com",
+ databaseURL: "https://push-up-tracker.firebaseio.com",
+ storageBucket: "push-up-tracker.appspot.com",
+ messagingSenderId: "21535802496"
+};
+firebase.initializeApp(config);
+
 
 export default class pushUpTrackerNative extends Component {
   constructor(props) {
@@ -49,7 +60,7 @@ export default class pushUpTrackerNative extends Component {
       <Text style={styles.headerText}>
         Push Up Tracker
       </Text>
-      <SignUpLogin/>
+      <SignUpLogin firebase={firebase}/>
     </View>
     );
   }
@@ -75,7 +86,7 @@ const styles = StyleSheet.create({
   headerText:{
     fontSize:30,
     textAlign: 'center',
-    margin: 10,
+    marginTop: 50,
     color: "#ffffff",
     fontFamily: "Helvetica Light"
   },
