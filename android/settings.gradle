@@ -1,0 +1,3 @@
+rootProject.name = 'pushUpTrackerNative'
+
+include ':app'
