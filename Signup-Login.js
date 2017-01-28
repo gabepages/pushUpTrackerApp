@@ -24,9 +24,9 @@ export default class SignUpLogin extends Component {
     super(props);
     this.state = { emailText: '' , passwordText: ''};
 
-    this.props.firebase.auth().onAuthStateChanged(function(user) {
+    props.firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
-        console.log(user, "dashboard");
+        props.handleScreenState("dashboard");
       }
     });
   }
@@ -52,7 +52,7 @@ export default class SignUpLogin extends Component {
           value={this.state.passwordText}
           placeholder="Password"
           autoCapitalize="none"
-          secureTextEntry="true"
+          secureTextEntry={true}
         />
         <View style={styles.buttons}>
           <Button

@@ -16,7 +16,7 @@ import {
 } from 'react-native';
 
 import SignUpLogin from "./Signup-Login.js"
-
+import Dashboard from "./Dashboard.js"
 
 const MyStatusBar = ({backgroundColor, ...props}) => (
   <View style={[styles.statusBar, { backgroundColor }]}>
@@ -50,6 +50,10 @@ export default class pushUpTrackerNative extends Component {
             <Text style={styles.headerText}>
               Push Up Tracker
             </Text>
+            <Dashboard
+                handleScreenState={this.handleScreenState.bind(this)}
+                firebase={firebase}
+              />
           </View>
       );
     }
@@ -60,9 +64,15 @@ export default class pushUpTrackerNative extends Component {
       <Text style={styles.headerText}>
         Push Up Tracker
       </Text>
-      <SignUpLogin firebase={firebase}/>
+      <SignUpLogin
+          handleScreenState={this.handleScreenState.bind(this)}
+          firebase={firebase}
+        />
     </View>
     );
+  }
+  handleScreenState(screenState) {
+    this.setState({screenState})
   }
 }
 
