@@ -18,6 +18,7 @@ import {
 import SignUpLogin from "./Signup-Login.js"
 import Dashboard from "./Dashboard.js"
 
+
 const MyStatusBar = ({backgroundColor, ...props}) => (
   <View style={[styles.statusBar, { backgroundColor }]}>
     <StatusBar backgroundColor={backgroundColor} {...props} />
@@ -42,25 +43,19 @@ export default class pushUpTrackerNative extends Component {
      };
   }
   render() {
-
+    console.log(this.state.screenState);
     if(this.state.screenState == "dashboard"){
       return (
-          <View style={styles.appBackground}>
-            <MyStatusBar backgroundColor="#006064" barStyle="light-content" />
-            <Text style={styles.headerText}>
-              Push Up Tracker
-            </Text>
-            <Dashboard
-                handleScreenState={this.handleScreenState.bind(this)}
-                firebase={firebase}
-              />
+          <View>
+            <MyStatusBar backgroundColor="#0097a7" barStyle="light-content" />
+            <Dashboard/>
           </View>
       );
     }
 
     return (
     <View style={styles.appBackground}>
-      <MyStatusBar backgroundColor="#006064" barStyle="light-content" />
+      <MyStatusBar backgroundColor="#0097a7" barStyle="light-content" />
       <Text style={styles.headerText}>
         Push Up Tracker
       </Text>

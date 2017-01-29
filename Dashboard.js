@@ -20,29 +20,34 @@ import {
 
 
 export default class Dashboard extends Component {
-  constructor(props){
-    super(props);
-  }
+
   render() {
+    console.log(this.state, this.props);
     return (
-      <View>
+      <View style={{flex:1}}>
+        <View style={styles.header}>
           <Button
-            onPress={this.signOut.bind(this)}
-            title="Sign Out"
-            color="#f00"
-            accessibilityLabel="Sign Out"
+            onPress={() => console.log('Hello Wolrd')}
+            title="Menu"
+            color="#fff"
           />
-    </View>
+          <Text style={{textAlign: "center"}}>Push Up Tracker</Text>
+        </View>
+        <View>
+          <Text style={{textAlign: "center"}}>Hello World</Text>
+        </View>
+      </View>
     );
   }
-  signOut (e) {
-     e.preventDefault()
-     let self = this
-     this.props.firebase.auth().signOut().then(function() {
-        self.props.handleScreenState('home');
-      }, function(error) {
-        alert(error)
-      });
-  }
-
 }
+
+
+const styles = StyleSheet.create({
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    backgroundColor:"#0097a7",
+    height:45,
+  }
+});
