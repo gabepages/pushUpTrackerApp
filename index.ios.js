@@ -16,13 +16,7 @@ import {
 } from 'react-native';
 
 import SignUpLogin from "./Signup-Login.js"
-
-
-const MyStatusBar = ({backgroundColor, ...props}) => (
-  <View style={[styles.statusBar, { backgroundColor }]}>
-    <StatusBar backgroundColor={backgroundColor} {...props} />
-  </View>
-);
+import Dashboard from "./Dashboard.js"
 // Initialize Firebase
 var config = {
  apiKey: "AIzaSyBODxoQGXMZDXKgtae5KjKEL3sVLo5ooLQ",
@@ -34,6 +28,15 @@ var config = {
 firebase.initializeApp(config);
 
 
+
+const MyStatusBar = ({backgroundColor, ...props}) => (
+  <View style={[styles.statusBar, { backgroundColor }]}>
+    <StatusBar backgroundColor={backgroundColor} {...props} />
+  </View>
+);
+
+
+
 export default class pushUpTrackerNative extends Component {
   constructor(props) {
     super(props);
@@ -42,7 +45,7 @@ export default class pushUpTrackerNative extends Component {
      };
   }
   render() {
-
+    console.log(this.state);
     if(this.state.screenState == "dashboard"){
       return (
           <View style={styles.appBackground}>
@@ -50,6 +53,10 @@ export default class pushUpTrackerNative extends Component {
             <Text style={styles.headerText}>
               Push Up Tracker
             </Text>
+            <Dashboard
+                firebase={firebase}
+                changeScreenState={this.changeScreenState.bind(this)}
+              />
           </View>
       );
     }
@@ -60,9 +67,15 @@ export default class pushUpTrackerNative extends Component {
       <Text style={styles.headerText}>
         Push Up Tracker
       </Text>
-      <SignUpLogin firebase={firebase}/>
+      <SignUpLogin
+          firebase={firebase}
+          changeScreenState={this.changeScreenState.bind(this)}
+        />
     </View>
     );
+  }
+  changeScreenState(screenState){
+    this.setState({screenState});
   }
 }
 
