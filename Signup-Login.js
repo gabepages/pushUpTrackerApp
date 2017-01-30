@@ -24,9 +24,9 @@ export default class SignUpLogin extends Component {
     super(props);
     this.state = { emailText: '' , passwordText: ''};
 
-    this.props.firebase.auth().onAuthStateChanged(function(user) {
+    props.firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
-        props.changeScreenState('dashboard')
+        props.handleScreenState("dashboard");
       }
     });
   }

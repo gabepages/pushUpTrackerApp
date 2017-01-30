@@ -17,6 +17,16 @@ import {
 
 import SignUpLogin from "./Signup-Login.js"
 import Dashboard from "./Dashboard.js"
+<<<<<<< HEAD
+=======
+
+
+const MyStatusBar = ({backgroundColor, ...props}) => (
+  <View style={[styles.statusBar, { backgroundColor }]}>
+    <StatusBar backgroundColor={backgroundColor} {...props} />
+  </View>
+);
+>>>>>>> 5858cb349adca1b5f8530aa3a6c63d7b4718fc92
 // Initialize Firebase
 var config = {
  apiKey: "AIzaSyBODxoQGXMZDXKgtae5KjKEL3sVLo5ooLQ",
@@ -45,6 +55,7 @@ export default class pushUpTrackerNative extends Component {
      };
   }
   render() {
+<<<<<<< HEAD
     console.log(this.state);
     if(this.state.screenState == "dashboard"){
       return (
@@ -57,25 +68,43 @@ export default class pushUpTrackerNative extends Component {
                 firebase={firebase}
                 changeScreenState={this.changeScreenState.bind(this)}
               />
+=======
+    console.log(this.state.screenState);
+    if(this.state.screenState == "dashboard"){
+      return (
+          <View>
+            <MyStatusBar backgroundColor="#0097a7" barStyle="light-content" />
+            <Dashboard/>
+>>>>>>> 5858cb349adca1b5f8530aa3a6c63d7b4718fc92
           </View>
       );
     }
 
     return (
     <View style={styles.appBackground}>
-      <MyStatusBar backgroundColor="#006064" barStyle="light-content" />
+      <MyStatusBar backgroundColor="#0097a7" barStyle="light-content" />
       <Text style={styles.headerText}>
         Push Up Tracker
       </Text>
       <SignUpLogin
+<<<<<<< HEAD
           firebase={firebase}
           changeScreenState={this.changeScreenState.bind(this)}
+=======
+          handleScreenState={this.handleScreenState.bind(this)}
+          firebase={firebase}
+>>>>>>> 5858cb349adca1b5f8530aa3a6c63d7b4718fc92
         />
     </View>
     );
   }
+<<<<<<< HEAD
   changeScreenState(screenState){
     this.setState({screenState});
+=======
+  handleScreenState(screenState) {
+    this.setState({screenState})
+>>>>>>> 5858cb349adca1b5f8530aa3a6c63d7b4718fc92
   }
 }
 
