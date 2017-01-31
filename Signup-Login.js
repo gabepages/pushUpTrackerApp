@@ -31,7 +31,6 @@ export default class SignUpLogin extends Component {
     });
   }
   render() {
-    console.log(this.state, this.props);
     return (
       <View style={styles.inputFieldSection}>
         <Text style={{ color:"#ffffff",fontSize:20, marginBottom:20}}>Sign Up or Login:</Text>

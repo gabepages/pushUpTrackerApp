@@ -18,12 +18,12 @@ import {
 import SignUpLogin from "./Signup-Login.js"
 import Dashboard from "./Dashboard.js"
 
-
 const MyStatusBar = ({backgroundColor, ...props}) => (
   <View style={[styles.statusBar, { backgroundColor }]}>
     <StatusBar backgroundColor={backgroundColor} {...props} />
   </View>
 );
+
 // Initialize Firebase
 var config = {
  apiKey: "AIzaSyBODxoQGXMZDXKgtae5KjKEL3sVLo5ooLQ",
@@ -33,6 +33,15 @@ var config = {
  messagingSenderId: "21535802496"
 };
 firebase.initializeApp(config);
+
+
+
+const MyStatusBar = ({backgroundColor, ...props}) => (
+  <View style={[styles.statusBar, { backgroundColor }]}>
+    <StatusBar backgroundColor={backgroundColor} {...props} />
+  </View>
+);
+
 
 
 export default class pushUpTrackerNative extends Component {
